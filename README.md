@@ -8,6 +8,10 @@ For this example, we are using a Raspberry Pi 3
 
 Install 32 Bit Rasbian OS
 
+Install dependencies
+
+`apt-get install libsdl2-image-2.0-0`
+
 Clone this repository to your rpi
 
 `cd` into the repo folder
@@ -28,7 +32,7 @@ Attach hardware buttons to your Raspberry Pi (read source code to get pins numbe
 
 Run 
 
-`python3 src/run.py` 
+`python src/run.py` 
 
 Enjoy!
 
