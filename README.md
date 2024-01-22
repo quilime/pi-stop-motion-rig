@@ -4,13 +4,30 @@ Python code for a Raspberry Pi powered rig that allows stop motion animations to
 
 ## Installation
 
+For this example, we are using a Raspberry Pi 3
+
 Install 32 Bit Rasbian OS
 
-Clone this repository to your Raspberry Pi.
+Clone this repository to your rpi
 
-Install ffmpeg, omxplayer, python, and pygame on your Raspberry Pi using apt-get.
+`cd` into the repo folder
 
-`sudo apt install ffmpeg omxplayer python pygame`
+Create virtual env 
+
+`python -m venv venv`
+
+Source the env
+
+`source venv/bin/activate`
+
+Install requirements
+
+`pip install pygame textinput gpiozero picamera`
+
+`pip install -r requirements.txt`
+
+
+
 
    
 4. Attach hardware buttons to your Raspberry Pi (read source code to get pins numbers).
