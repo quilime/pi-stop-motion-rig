@@ -16,6 +16,12 @@ Install dependencies
 
 libsd12 adds support for BMP, GIF, JPEG, PNG, TGA, and more, used by Pygame
 
+for audio and font support
+
+`sudo apt install libsdl2-ttf-2.0-0 libsdl2-mixer-2.0-0`
+
+(via https://github.com/pygame/pygame/issues/2503)
+
 Clone this repository to your user (we're using `pi` in this case) home folder and `cd` into the repo folder
 
 Create virtual env 
