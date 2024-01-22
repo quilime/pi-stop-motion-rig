@@ -2,6 +2,8 @@
 
 Python code for a Raspberry Pi powered rig that allows stop motion animations to be created, viewed, and saved.
 
+
+
 ## Installation
 
 For this example, we are using a Raspberry Pi 3
@@ -12,9 +14,9 @@ Install dependencies
 
 `apt-get install libsdl2-image-2.0-0`
 
-Clone this repository to your rpi
+libsd12 adds support for BMP, GIF, JPEG, PNG, TGA, and more, used by Pygame
 
-`cd` into the repo folder
+Clone this repository to your user (we're using `pi` in this case) home folder and `cd` into the repo folder
 
 Create virtual env 
 
@@ -34,7 +36,54 @@ Run
 
 `python src/run.py` 
 
-Enjoy!
+
+
+
+
+# Autostart on Boot
+
+Create file `~/start-animation-station.sh`
+
+File contents: 
+
+```
+#!/bin/bash
+
+# Change directory
+cd /home/pi/pi-stop-motion-rig
+
+# Activate python environment
+source venv/bin/activate
+
+# Run python script
+python src/run.py
+```
+
+
+Make the script executable:
+
+```
+chmod +x /home/pi/start-animation-station.sh
+```
+
+
+Open a terminal and navigate to the LXDE-pi autostart directory:
+
+```
+cd ~/.config/lxsession/LXDE-pi
+```
+
+
+Add file `autostart` and add the following:
+
+```
+@/home/pi/start-animation-station.sh
+```
+
+
+Reboot your Raspberry Pi. The script should run automatically when the user logs in to the desktop.
+
+Please note that the script will run with the permissions of the user who is logging in. Make sure the user has the necessary permissions to run the script and access any files or directories it uses.
 
 
 ## More Information 
