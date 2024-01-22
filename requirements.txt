@@ -1,5 +1,7 @@
 colorzero==2.0
 gpiozero==2.0
+lgpio==0.0.0.2
 picamera==1.13
+pigpio==1.78
 pygame==2.5.2
 textinput==0.2.0
