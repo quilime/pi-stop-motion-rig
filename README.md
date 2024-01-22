@@ -4,10 +4,17 @@ Python code for a Raspberry Pi powered rig that allows stop motion animations to
 
 ## Installation
 
-1. Clone the repository to your Raspberry Pi.
-2. Install ffmpeg, omxplayer, python, and pygame on your Raspberry Pi using apt-get.
-3. Attach hardware buttons to your Raspberry Pi (read source code to get pins numbers).
-4. Run 'python3 src/run.py' and enjoy!
+Install 32 Bit Rasbian OS
+
+Clone this repository to your Raspberry Pi.
+
+Install ffmpeg, omxplayer, python, and pygame on your Raspberry Pi using apt-get.
+
+`sudo apt install ffmpeg omxplayer python pygame`
+
+   
+4. Attach hardware buttons to your Raspberry Pi (read source code to get pins numbers).
+5. Run 'python3 src/run.py' and enjoy!
 
 ## More Information 
 Instructables on how to set up the station - https://www.instructables.com/id/Raspberry-Pi-Stop-Motion-Animation-Rig/
