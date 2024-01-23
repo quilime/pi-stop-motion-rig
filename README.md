@@ -2,6 +2,8 @@
 
 Python code for a Raspberry Pi powered rig that allows stop motion animations to be created, viewed, and saved.
 
+Fork of [Wonderful Idea Co. Animation Station](https://github.com/wonderfulideaco/pi-stop-motion-rig)
+
 
 
 ## Installation
@@ -52,7 +54,7 @@ Create file `~/start-animation-station.sh`
 
 File contents: 
 
-```
+```sh
 #!/bin/bash
 
 # Change directory
@@ -68,21 +70,21 @@ python src/run.py
 
 Make the script executable:
 
-```
+```sh
 chmod +x /home/pi/start-animation-station.sh
 ```
 
 
 Open a terminal and navigate to the LXDE-pi autostart directory:
 
-```
+```sh
 cd ~/.config/lxsession/LXDE-pi
 ```
 
 
 Add file `autostart` and add the following:
 
-```
+```sh
 @/home/pi/start-animation-station.sh
 ```
 
