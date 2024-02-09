@@ -39,7 +39,7 @@ TEAL = (116, 199, 208)
 BLACK = (0, 0, 0)
 
 # whether to show the title screen
-reset = True
+reset = False
 
 # whether the preview is being show
 preview_playing = False
@@ -246,11 +246,17 @@ if __name__ == '__main__':
     CAMERA = PiCamera()
     CAMERA.preview_alpha = 200
     CAMERA.resolution = (WIDTH, HEIGHT)
-    
+    CAMERA.start_preview()
+    SCREEN.fill(WHITE)
+    pygame.display.update()
+    pygame.mouse.set_visible = False
+
+
     # Main loop.
     while True:
         pressed = get_pressed_buttons()
-        
+
+
         if reset:
             if frame >= cycle:
                 frame = 0 
@@ -337,7 +343,7 @@ if __name__ == '__main__':
                     pygame.display.flip()
                 CLOCK.tick(FPS)
                 frame_display_ghost(WIDTH, HEIGHT)
-                CAMERA.start_preview(fullscreen=False, window = (W-WIDTH, 100, WIDTH, HEIGHT))
+                CAMERA.start_preview(fullscreen=False, window = (W-WIDTH, 0, WIDTH, HEIGHT))
             elif erase_last_frame:
                 print('erase last frame')
                 frame_erase_last()
@@ -360,3 +366,4 @@ if __name__ == '__main__':
             elif exit_app:
                 print('exit')
                 quit_app()
+
