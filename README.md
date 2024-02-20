@@ -98,6 +98,8 @@ Please note that the script will run with the permissions of the user who is log
 
 ## Webserver
 
+A webserver hosts the `./public` folder on port :80 so that you can browse and download compiled movies.
+
 Install [Caddy](https://caddyserver.com/) and PHP to host the `./public` folder to access and download processed videos.
 
 Example Caddyfile:
