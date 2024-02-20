@@ -188,9 +188,10 @@ def play_movie(name, W, H):
             # restart_rect = restart_btn_img.get_rect(center=(W/2, anim_rect.height + padding*8 + video_path_text_rect.height))
             # SCREEN.blit(restart_btn_img, restart_rect)
             
-            pressed = get_pressed_buttons()              
+            pressed = get_pressed_buttons()
             if pressed in {2, 3, 4, 5, 6}:
                 preview_playing = False
+                pygame.display.flip()
 
             # check if user asked to exit and reset
             events = pygame.event.get()
