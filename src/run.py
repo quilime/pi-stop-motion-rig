@@ -175,20 +175,23 @@ def play_movie(name, W, H):
             # add info about video path
             font_size = 16
             font = pygame.font.Font('src/cafe.ttf', font_size)
-            video_path_text = font.render('Video saved at {path:s}'.format(path=name),
-                                        True, BLACK)
+            video_path_text = font.render('Video saved at {path:s}. Press any buton to start again!'.format(path=name), True, BLACK)
             video_path_text_rect = video_path_text.get_rect(center=(W/2, anim_rect.height + padding*4))
             SCREEN.blit(video_path_text, video_path_text_rect)
             
             # add restart button
-            btn_width = 300 
-            restart_btn_img = pygame.image.load('src/assets/restart_btn.png')
-            restart_btn_rect = restart_btn_img.get_rect()
-            btn_aspect = float(restart_btn_rect.width) / float(restart_btn_rect.height)
-            restart_btn_img = pygame.transform.scale(restart_btn_img, (btn_width, int(btn_width/btn_aspect)))
-            restart_rect = restart_btn_img.get_rect(center=(W/2, anim_rect.height + padding*8 + video_path_text_rect.height))
-            SCREEN.blit(restart_btn_img, restart_rect)
+            # btn_width = 300 
+            # restart_btn_img = pygame.image.load('src/assets/restart_btn.png')
+            # restart_btn_rect = restart_btn_img.get_rect()
+            # btn_aspect = float(restart_btn_rect.width) / float(restart_btn_rect.height)
+            # restart_btn_img = pygame.transform.scale(restart_btn_img, (btn_width, int(btn_width/btn_aspect)))
+            # restart_rect = restart_btn_img.get_rect(center=(W/2, anim_rect.height + padding*8 + video_path_text_rect.height))
+            # SCREEN.blit(restart_btn_img, restart_rect)
             
+            pressed = get_pressed_buttons()              
+            if pressed in {2, 3, 4, 5, 6}:
+                delete_and_quit = True
+
             # check if user asked to exit and reset
             events = pygame.event.get()
             for event in events:
@@ -284,19 +287,14 @@ if __name__ == '__main__':
             # button press events
             pressed = get_pressed_buttons()              
             if pressed == {2}:
-                preview_playing = False
                 delete_and_quit = True
             elif pressed == {3}:
-                preview_playing = False
                 show_preview = True
             elif pressed == {4}:
-                preview_playing = False
                 erase_last_frame = True
             elif pressed == {5}:
-                preview_playing = False
                 take_picture = True
             elif pressed == {6}:
-                preview_playing = False
                 make_and_save_movie = True
             elif pressed == {13}:
                 exit_app = True
@@ -361,7 +359,7 @@ if __name__ == '__main__':
                 new_movie = movie_make(FPS_MOVIE)
                 play_movie(new_movie, WIDTH, HEIGHT)
                 frames_delete()
-                reset = True
+                # reset = True
             elif exit_app:
                 print('exit')
                 quit_app()
