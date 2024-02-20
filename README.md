@@ -100,17 +100,17 @@ Example Caddyfile:
 
 ```
 :80 {
-        # Set this path to your site's directory.
-        root * /home/admin/pi-stop-motion-rig/public
+    # Set this path to your site's directory.
+    root * /home/admin/pi-stop-motion-rig/public
 
-        # Enable the static file server.
-        file_server
+    # Enable the static file server.
+    file_server
 
-        # compress HTTP reponses
-        encode zstd gzip
+    # compress HTTP reponses
+    encode zstd gzip
 
-        # Configures PHP
-        php_fastcgi unix//run/php/php-fpm.sock
+    # Configures PHP
+    php_fastcgi unix//run/php/php-fpm.sock
 }
 ```
 
