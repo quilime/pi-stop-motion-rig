@@ -175,7 +175,7 @@ def play_movie(name, W, H):
             # add info about video path
             font_size = 16
             font = pygame.font.Font('src/cafe.ttf', font_size)
-            video_path_text = font.render('Video saved at {path:s}. Press any buton to start again!'.format(path=name), True, BLACK)
+            video_path_text = font.render('Video saved at {path:s}. Press any button to start again!'.format(path=name), True, BLACK)
             video_path_text_rect = video_path_text.get_rect(center=(W/2, anim_rect.height + padding*4))
             SCREEN.blit(video_path_text, video_path_text_rect)
             
@@ -190,7 +190,7 @@ def play_movie(name, W, H):
             
             pressed = get_pressed_buttons()              
             if pressed in {2, 3, 4, 5, 6}:
-                delete_and_quit = True
+                preview_playing = False
 
             # check if user asked to exit and reset
             events = pygame.event.get()
