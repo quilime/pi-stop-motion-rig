@@ -1,5 +1,4 @@
 import datetime as dt
-import subprocess
 import random
 import glob
 import os
@@ -137,8 +136,14 @@ def movie_make(fps):
     ns = frame_get_numbers()
     if len(ns) > 0:
         movie_name = dt.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-        process = subprocess.Popen(['bash', script, movie_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        process.wait()
+        # movie_name = 'movies/{hour:02d}_{minute:02d}_{second:02d}.mp4'.format(
+        #     hour=now.hour,
+        #     minute=now.minute,
+        #     second=now.second,
+        # )
+        # command = "ffmpeg -r {fps:d} -pattern_type glob -i 'frames/*.jpg' -c:v libx264 {movie_name:s}".format(fps=fps, movie_name=movie_name)
+        command = "ffmpeg -framerate {fps:d} -pattern_type glob -i 'frames/*.jpg' -c:v libx264 -crf 27 -preset ultrafast movies/{movie_name:s}".format(fps=fps, movie_name=movie_name)
+        os.system(command)
         return movie_name
 
 def play_movie(name, W, H):
@@ -357,7 +362,7 @@ if __name__ == '__main__':
                 # make movie          
                 new_movie = movie_make(FPS_MOVIE)
                 play_movie(new_movie, WIDTH, HEIGHT)
-                # frames_delete()
+                frames_delete()
                 reset = True
             elif exit_app:
                 print('exit')
