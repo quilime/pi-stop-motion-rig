@@ -180,7 +180,7 @@ def play_movie(name, W, H):
             video_path_text_rect = video_path_text.get_rect(center=(W/2, anim_rect.height + padding*4))
             SCREEN.blit(video_path_text, video_path_text_rect)
             
-            # add retart button
+            # add restart button
             btn_width = 300 
             restart_btn_img = pygame.image.load('src/assets/restart_btn.png')
             restart_btn_rect = restart_btn_img.get_rect()
@@ -284,14 +284,19 @@ if __name__ == '__main__':
             # button press events
             pressed = get_pressed_buttons()              
             if pressed == {2}:
+                preview_playing = False
                 delete_and_quit = True
             elif pressed == {3}:
+                preview_playing = False
                 show_preview = True
             elif pressed == {4}:
+                preview_playing = False
                 erase_last_frame = True
             elif pressed == {5}:
+                preview_playing = False
                 take_picture = True
             elif pressed == {6}:
+                preview_playing = False
                 make_and_save_movie = True
             elif pressed == {13}:
                 exit_app = True
