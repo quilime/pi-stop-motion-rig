@@ -12,7 +12,7 @@ For this example, we are using a Raspberry Pi 3, 32 Bit Rasbian OS
 
 Install dependencies
 
-`apt-get install libsdl2-image-2.0-0`
+`apt-get install libsdl2-image-2.0-0 ffmpeg`
 
 libsd12 adds support for BMP, GIF, JPEG, PNG, TGA, and more, used by Pygame
 
@@ -46,7 +46,7 @@ Run
 
 
 
-# Autostart on Boot
+## Autostart on Boot
 
 Create file `~/start-animation-station.sh`
 
@@ -91,6 +91,28 @@ Reboot your Raspberry Pi. The script should run automatically when the user logs
 
 Please note that the script will run with the permissions of the user who is logging in. Make sure the user has the necessary permissions to run the script and access any files or directories it uses.
 
+
+## Webserver
+
+Install [Caddy](https://caddyserver.com/) and PHP to host the `./public` folder to access and download processed videos.
+
+Example Caddyfile:
+
+```
+:80 {
+        # Set this path to your site's directory.
+        root * /home/admin/pi-stop-motion-rig/public
+
+        # Enable the static file server.
+        file_server
+
+        # compress HTTP reponses
+        encode zstd gzip
+
+        # Configures PHP
+        php_fastcgi unix//run/php/php-fpm.sock
+}
+```
 
 ## More Information 
 
