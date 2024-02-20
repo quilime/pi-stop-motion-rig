@@ -16,6 +16,8 @@ Install dependencies
 
 libsd12 adds support for BMP, GIF, JPEG, PNG, TGA, and more, used by Pygame
 
+ffmpeg used for frame compilation
+
 for audio and font support
 
 `sudo apt install libsdl2-ttf-2.0-0 libsdl2-mixer-2.0-0`
@@ -90,6 +92,8 @@ Add file `autostart` and add the following:
 Reboot your Raspberry Pi. The script should run automatically when the user logs in to the desktop.
 
 Please note that the script will run with the permissions of the user who is logging in. Make sure the user has the necessary permissions to run the script and access any files or directories it uses.
+
+
 
 
 ## Webserver

@@ -1,4 +1,5 @@
 import datetime as dt
+import subprocess
 import random
 import glob
 import os
@@ -77,6 +78,14 @@ def display_create_video(W, H):
     loading_image = pygame.transform.scale(loading_image, (int(H*aspect), H))
      
     SCREEN.blit(loading_image, (int(W/2-H*aspect/2), 0))
+
+    # Adding text
+    font = pygame.font.SysFont(None, 36)  # None for default font, 36 is the size
+    text = font.render('Loading...', True, (255, 255, 255))  # White text
+    text_rect = text.get_rect(center=(W/2, H - 50))  # Positioning the text
+    
+    SCREEN.blit(text, text_rect)  # Drawing the text
+
     pygame.display.update()
     
 def frame_capture():
@@ -135,14 +144,9 @@ def movie_make(fps):
     print('make movie')
     ns = frame_get_numbers()
     if len(ns) > 0:
-        now = dt.datetime.now()
-        movie_name = 'movies/{hour:02d}_{minute:02d}_{second:02d}.mp4'.format(
-            hour=now.hour,
-            minute=now.minute,
-            second=now.second,
-        )
-        command = "ffmpeg -r {fps:d} -pattern_type glob -i 'frames/*.jpg' -c:v libx264 {movie_name:s}".format(fps=fps, movie_name=movie_name)
-        os.system(command)
+        movie_name = dt.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        process = subprocess.Popen(['bash', script, movie_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process.wait()
         return movie_name
 
 def play_movie(name, W, H):
@@ -361,7 +365,7 @@ if __name__ == '__main__':
                 # make movie          
                 new_movie = movie_make(FPS_MOVIE)
                 play_movie(new_movie, WIDTH, HEIGHT)
-                frames_delete()
+                # frames_delete()
                 reset = True
             elif exit_app:
                 print('exit')
