@@ -136,7 +136,7 @@ def movie_make(fps):
     ns = frame_get_numbers()
     if len(ns) > 0:
         movie_name = dt.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-        command = "ffmpeg -framerate {fps:d} -pattern_type glob -i 'frames/*.jpg' -c:v libx264 -crf 27 -preset ultrafast movies/{movie_name:s}".format(fps=fps, movie_name=movie_name)
+        command = "ffmpeg -framerate {fps:d} -pattern_type glob -i 'frames/*.jpg' -c:v libx264 -crf 27 -preset ultrafast movies/{movie_name:s}.mp4".format(fps=fps, movie_name=movie_name)
         os.system(command)
         return movie_name
 
