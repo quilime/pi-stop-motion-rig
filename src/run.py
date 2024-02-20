@@ -78,14 +78,6 @@ def display_create_video(W, H):
     loading_image = pygame.transform.scale(loading_image, (int(H*aspect), H))
      
     SCREEN.blit(loading_image, (int(W/2-H*aspect/2), 0))
-
-    # Adding text
-    font = pygame.font.SysFont(None, 36)  # None for default font, 36 is the size
-    text = font.render('Loading...', True, (255, 255, 255))  # White text
-    text_rect = text.get_rect(center=(W/2, H - 50))  # Positioning the text
-    
-    SCREEN.blit(text, text_rect)  # Drawing the text
-
     pygame.display.update()
     
 def frame_capture():
