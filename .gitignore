@@ -3,6 +3,7 @@
 frames/*.jpg
 movies/*.mp4
 
+.mypy_cache
 .env
 .venv
 venv/
