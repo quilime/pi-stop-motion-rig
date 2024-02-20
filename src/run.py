@@ -28,7 +28,6 @@ from picamera import PiCamera
 
 BUTTON_NUMBERS = [2, 3, 4, 5, 6, 13]
 
-
 BUTTONS = {
     bnum: Button(bnum)
     for bnum in BUTTON_NUMBERS
@@ -60,7 +59,6 @@ def display_start_screen(W, H, switch_frame):
     SCREEN.blit(title_to_show, (W/2-H*aspect/2, 0))
 
     # TODO add WICO logo
-
     pygame.display.update()
 
 def display_create_video(W, H):
@@ -187,6 +185,7 @@ def play_movie(name, W, H):
 
             pressed = get_pressed_buttons()
             if pressed in {2, 3, 4, 5, 6}:
+                print('button pressed')
                 preview_playing = False
 
             # check if user asked to exit and reset
