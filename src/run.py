@@ -157,10 +157,8 @@ def play_movie(name, W, H):
         print('testttt') 
         pressed = get_pressed_buttons()
         print(pressed)
-        if pressed in {2, 3, 4, 5, 6, 13}:
+        if pressed in {{2}, {3}, {4}, {5}, {6}, {13}}:
             print('shtopppppoot')
-
-
 
         for n in ns:
             anim = pygame.image.load('frames/frame_{n:04d}.jpg'.format(n=n))
@@ -221,7 +219,7 @@ if __name__ == '__main__':
             os.mkdir(absdir)
 
     # Initialize.
-    FPS = 10
+    FPS = 30
     FPS_MOVIE = 5
     pygame.init()
     W, H = pygame.display.list_modes()[0]
