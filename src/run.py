@@ -168,7 +168,7 @@ def play_movie(name, W, H):
             pygame.display.flip()
 
             # add info about video path
-            font_size = 16
+            font_size = 36
             font = pygame.font.Font('src/cafe.ttf', font_size)
             video_path_text = font.render('Video saved at {path:s}.'.format(path=name), True, BLACK)
             video_path_text_rect = video_path_text.get_rect(center=(W/2, anim_rect.height + padding*4))
