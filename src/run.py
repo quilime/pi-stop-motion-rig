@@ -153,13 +153,6 @@ def play_movie(name, W, H):
     pygame.display.flip()
 
     while preview_playing:
-
-        print('testttt') 
-        pressed = get_pressed_buttons()
-        print(pressed)
-        if pressed in {{2}, {3}, {4}, {5}, {6}, {13}}:
-            print('shtopppppoot')
-
         for n in ns:
             anim = pygame.image.load('frames/frame_{n:04d}.jpg'.format(n=n))
 
@@ -193,12 +186,17 @@ def play_movie(name, W, H):
             # check if user asked to exit and reset
             events = pygame.event.get()
             for event in events:
-                # keyboard event
                 if event.type == pygame.KEYDOWN:
                     print('stop video')
                     preview_playing = False
                     if event.key == pygame.K_ESCAPE:
                         quit_app()
+
+            print('testttt') 
+            pressed = get_pressed_buttons()
+            print(pressed)
+            if pressed == {3}:
+                print('shtopppppoot')
 
 def quit_app():
     print('quit app')
