@@ -194,11 +194,11 @@ def play_movie(name, W, H):
 
             pressed = get_pressed_buttons()
             if pressed == {3}:
-                print('shtopppppoot')
+                preview_playing = False
             elif pressed == {5}:
-                print('shtopppppoot')
+                preview_playing = False
             elif pressed == {6}:
-                print('shtopppppoot')
+                preview_playing = False
 
 def quit_app():
     print('quit app')
