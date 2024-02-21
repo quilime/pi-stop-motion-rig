@@ -199,6 +199,8 @@ def play_movie(name, W, H):
                 pressed == {5} or 
                 pressed == {6}):
                 preview_playing = False
+                SCREEN.fill(BLACK)
+                pygame.display.update()
 
 def quit_app():
     print('quit app')
@@ -243,7 +245,7 @@ if __name__ == '__main__':
     CAMERA.preview_alpha = 200
     CAMERA.resolution = (WIDTH, HEIGHT)
     CAMERA.start_preview()
-    SCREEN.fill(WHITE)
+    SCREEN.fill(BLACK)
     pygame.display.update()
     pygame.mouse.set_visible = False
 
