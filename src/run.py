@@ -192,10 +192,12 @@ def play_movie(name, W, H):
                     if event.key == pygame.K_ESCAPE:
                         quit_app()
 
-            print('testttt') 
             pressed = get_pressed_buttons()
-            print(pressed)
             if pressed == {3}:
+                print('shtopppppoot')
+            elif pressed == {5}:
+                print('shtopppppoot')
+            elif pressed == {6}:
                 print('shtopppppoot')
 
 def quit_app():
