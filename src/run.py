@@ -200,6 +200,7 @@ def play_movie(name, W, H):
                 pressed == {6}):
                 preview_playing = False
                 SCREEN.fill(BLACK)
+                CLOCK.tick(FPS)
                 pygame.display.update()
 
 def quit_app():
