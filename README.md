@@ -8,7 +8,9 @@ Fork of [Wonderful Idea Co. Animation Station](https://github.com/wonderfulideac
 
 ## Installation
 
-For this example, we are using a Raspberry Pi 3, 32 Bit Rasbian OS
+Hardware
+
+- Raspberry Pi 3, 32 Bit Rasbian OS
 
 Install dependencies
 
